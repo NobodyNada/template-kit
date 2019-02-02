@@ -265,6 +265,15 @@ public final class TemplateSerializer {
         case .embed(let embed): return try render(embed: embed, source: syntax.source)
         case .iterator(let it): return try render(iterator: it, source: syntax.source)
         case .custom(let cust): return cust.render(self)
+            
+        case .import, .extend:
+            // Error cases: imports and extensions should have been statically resolved by `TemplateRenderer.resolveExtensions`.
+            throw TemplateKitError(
+                identifier: "unresolvedImportOrExtend",
+                reason: "Encountered an import or extend statement during serialization; " +
+                "has TemplateRenderer.resolveExtensions been called?",
+                source: syntax.source
+            )
         }
     }
 }

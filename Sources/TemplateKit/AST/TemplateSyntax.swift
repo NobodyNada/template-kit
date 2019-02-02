@@ -33,6 +33,8 @@ public struct TemplateSyntax: CustomStringConvertible {
         case .expression(let expr): return "(\(expr))"
         case .constant(let const): return "\(const)"
         case .embed(let embed): return "embed\(embed.path)"
+        case .import(let i): return i.description
+        case .extend(let extend): return extend.description
         case .conditional(let cond): return "cond(\(cond))"
         case .iterator(let it): return "while\(it)"
         case .custom: return "custom()"

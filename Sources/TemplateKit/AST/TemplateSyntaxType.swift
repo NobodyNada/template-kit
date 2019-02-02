@@ -10,6 +10,12 @@ public indirect enum TemplateSyntaxType {
 
     /// See `TemplateEmbed`.
     case embed(TemplateEmbed)
+    
+    /// See `TemplateImport`.
+    case `import`(TemplateImport)
+    
+    /// See `TemplateExtend`.
+    case extend(TemplateExtend)
 
     /// See `TemplateConditional`.
     case conditional(TemplateConditional)
@@ -38,6 +44,8 @@ public indirect enum TemplateSyntaxType {
         case .raw: return "raw"
         case .tag: return "tag"
         case .embed: return "embed"
+        case .import: return "import"
+        case .extend: return "extend"
         case .conditional: return "conditional"
         case .iterator: return "iterator"
         case .custom: return "custom"
