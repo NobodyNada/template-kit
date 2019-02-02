@@ -115,6 +115,12 @@ class ExtensionTests: XCTestCase {
             "<p>Test</p></alert>Hello, Vapor!</body></html>"
         )
     }
+
+    static var allTests = [
+        ("testSimpleExtensionResolution", testSimpleExtensionResolution),
+        ("testImports", testImports),
+        ("testNestedExtensions", testNestedExtensions)
+    ]
 }
 
 extension TemplateSyntax {
